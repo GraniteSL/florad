@@ -76,7 +76,7 @@ class LambdaLink {
 			fs.writeFileSync(lambda.paths.package, JSON.stringify(npmPackage, null, 4));
 
 			const cwd = lambda.paths.lambda;
-			const npminstall = execa('npm', [ 'i', '--json', '--silent', '--target=8.1.0', '--target_platform=linux', '--target_arch=x64'], {cwd});
+			const npminstall = execa('npm', [ 'i', '--json', '--silent' ], {cwd});
 
 			debug(`${lambda.debugName}: $npm install`);
 			return npminstall.then(() => {
